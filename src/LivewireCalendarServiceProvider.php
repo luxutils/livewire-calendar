@@ -14,9 +14,12 @@ class LivewireCalendarServiceProvider extends ServiceProvider
     {
         $this->loadViewsFrom(__DIR__ . '/../resources/views', 'livewire-calendar');
 
+        $this->loadTranslationsFrom(__DIR__ . '/../lang', 'livewire-calendar');
+
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../resources/views' => $this->app->resourcePath('views/vendor/livewire-calendar'),
+                __DIR__ . '/../lang' => $this->app->langPath('vendor/livewire-calendar'),
             ], 'livewire-calendar');
         }
 
