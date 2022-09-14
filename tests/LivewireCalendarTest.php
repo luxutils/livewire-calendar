@@ -1,14 +1,14 @@
 <?php
 
-namespace Asantibanez\LivewireCalendar\Tests;
+namespace Luxutils\LivewireCalendar\Tests;
 
-use Asantibanez\LivewireCalendar\LivewireCalendar;
+use Luxutils\LivewireCalendar\LivewireCalendar;
 use Livewire\LivewireManager;
 use Livewire\Testing\TestableLivewire;
 
 class LivewireCalendarTest extends TestCase
 {
-    private function createComponent($parameters = []) : TestableLivewire
+    private function createComponent($parameters = []): TestableLivewire
     {
         return app(LivewireManager::class)->test(LivewireCalendar::class, $parameters);
     }
