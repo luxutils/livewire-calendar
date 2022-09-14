@@ -19,7 +19,8 @@ class LivewireCalendarServiceProvider extends ServiceProvider
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__ . '/../resources/views' => $this->app->resourcePath('views/vendor/livewire-calendar'),
-                __DIR__ . '/../lang' => $this->app->langPath('vendor/livewire-calendar'),
+                __DIR__ . '/../lang' => lang_path('vendor/livewire-calendar'),
+                __DIR__.'/../config/livewire-calendar.php' => config_path('livewire-calendar.php'),
             ], 'livewire-calendar');
         }
 
@@ -65,5 +66,18 @@ class LivewireCalendarServiceProvider extends ServiceProvider
             </script>
 HTML;
         });
+    }
+
+    /**
+     * Register any application services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        $this->mergeConfigFrom(
+            __DIR__ . '/../config/livewire-calendar.php',
+            'livewire-calendar'
+        );
     }
 }
